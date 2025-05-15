@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SoftSell 💼💰
 
-## Getting Started
+A sleek, responsive web app that allows users to **sell unused software licenses** easily. Powered by Next.js, Tailwind CSS, and OpenAI for an LLM-powered chatbot.
 
-First, run the development server:
+---
+## 🔗 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌍 [Click here to view the live site](https://your-live-site-url.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features Implemented
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🧩 Core Pages
+- **Hero Section** – Engaging headline, subheading, and CTA (Sell My Licenses).
+- **How It Works** – 3-step process using icons: Upload License → Get Valuation → Get Paid.
+- **Why Choose Us** – Highlighted benefits using icon tiles.
+- **Testimonials** – Stylish, animated section with 2 dummy customer reviews.
+- **Contact Form** – Lead capture with validation (Name, Email, Company, License Type, Message).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🤖 Bonus: LLM-Powered Chat Widget
+- AI-powered customer assistant using OpenAI GPT (free-tier key).
+- Sample questions hardcoded.
+- Graceful fallback if OpenAI fails or question is unrecognized.
+- Fully integrated chat widget with toggle UI.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Design Choices
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** Next.js + React – SSR and performance.
+- **Styling:** Tailwind CSS – Rapid styling and responsive design.
+- **Animations:** Framer Motion – Smooth transitions in hero and testimonials.
+- **Light/Dark Mode:** Toggle implemented using Tailwind’s dark variant.
+- **SEO & Accessibility:**
+  - Page `<title>` and meta tags.
+  - Accessible form elements.
+  - Favicon and logo placeholder added.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🕒 Time Spent
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Task                            | Time     |
+| -------------------------------|----------|
+| Project Setup (Next + Tailwind)| ~30 min  |
+| Hero + How It Works UI         | ~45 min  |
+| Why Choose Us + Testimonials   | ~40 min  |
+| Contact Form UI + Validation   | ~30 min  |
+| Chatbot API & Widget UI        | ~90 min  |
+| Bonus Features (SEO, Anim)     | ~45 min  |
+| 💻 **Total**                   | **~4 hrs**|
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠 Tech Stack
+
+- **Next.js 14**
+- **Tailwind CSS**
+- **Framer Motion**
+- **OpenAI API**
+- **React Hooks**
+- **TypeScript (optional for components)**
+
+---
+
+## 📁 Folder Structure (simplified)
+
