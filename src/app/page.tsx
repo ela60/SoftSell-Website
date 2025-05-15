@@ -1,3 +1,4 @@
+import ChatWidget from '@/components/ChatWidget';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
 import HowItWorks from '@/components/HowItWorks';
@@ -11,7 +12,8 @@ export default function Home() {
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />
-      <ContactForm/>
+      <ContactForm />
+      <ChatWidget/>
     </main>
   );
 }
