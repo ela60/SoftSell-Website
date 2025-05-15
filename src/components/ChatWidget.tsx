@@ -22,9 +22,9 @@ export default function ChatWidget() {
     setMessages(prev => [...prev, userMessage]);
     setInput('');
 
-    // Optional: use mock or OpenAI API
+  
     try {
-      const response = await axios.post('/api/chat', { message: input }); // You can mock this
+      const response = await axios.post('/api/chat', { message: input });
       setMessages(prev => [...prev, { from: 'bot', text: response.data.reply }]);
     } catch (err) {
       setMessages(prev => [...prev, { from: 'bot', text: "Sorry, I couldn't understand that." }]);
@@ -44,7 +44,7 @@ export default function ChatWidget() {
               <div
                 key={i}
                 className={`p-2 rounded ${
-                  msg.from === 'user' ? 'bg-indigo-100 text-right ml-auto max-w-[75%]' : 'bg-gray-100 dark:bg-gray-700 max-w-[75%]'
+                  msg.from === 'user' ? 'bg-indigo-500 text-right ml-auto max-w-[75%]' : 'bg-indigo-500 dark:bg-gray-700 max-w-[75%]'
                 }`}
               >
                 {msg.text}
