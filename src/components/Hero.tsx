@@ -1,34 +1,110 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
+  // Generate falling shapes
+  const [shapes, setShapes] = useState([]);
+  useEffect(() => {
+    const newShapes = Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 10,
+      size: Math.random() * 8 + 4,
+      type: Math.random() > 0.5 ? "circle" : "diamond",
+    }));
+    setShapes(newShapes);
+  }, []);
+
   return (
-    <section className="relative bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="max-w-3xl mx-auto"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-24 text-center">
+    <section className="relative overflow-hidden min-h-screen bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 flex items-center">
+      {/* Falling Shapes */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {shapes.map((shape) => (
+          <motion.div
+            key={shape.id}
+            className={`absolute ${
+              shape.type === "circle" ? "rounded-full" : "rotate-45"
+            } bg-white dark:bg-white`}
+            style={{
+              left: `${shape.left}%`,
+              width: shape.size,
+              height: shape.size,
+              top: "-10%",
+            }}
+            animate={{ y: "120vh" }}
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              delay: shape.delay,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Content Layout */}
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Left Side Text */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="space-y-6"
+        >
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-            Turn Unused Software Into Cash
+            Turn Unused <span className="text-indigo-500">Software</span>  Into Cash
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            SoftSell helps you easily sell your unused software licenses and get paid fast. No hassle, just profit.
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl">
+            SoftSell helps you easily sell your unused software licenses and get
+            paid fast. No hassle, just profit.
           </p>
-          <div className="mt-10">
-            <a
-              href="#contact"
-              className="inline-block rounded-xl bg-indigo-600 px-8 py-4 text-white text-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-lg"
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-3 px-6 py-3 border border-white text-white bg-indigo-600 rounded-xl text-lg font-semibold transition duration-300 hover:bg-white/10"
+          >
+            Sell My Licenses
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+              whileHover={{ x: 4 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              Sell My Licenses
-            </a>
-          </div>
-        </div>
-      </motion.div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 12H3m0 0l4-4m-4 4l4 4"
+              />
+            </motion.svg>
+          </a>
+        </motion.div>
+
+        {/* Right Side Image Animation */}
+        <motion.div
+          className="relative w-full h-[400px] flex justify-center items-center"
+          animate={{ y: [0, 60, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 10,
+            ease: "easeInOut",
+          }}
+        >
+          <Image
+            src="https://i.ibb.co/dsnmDNQ7/Soft-Sell-Tech-Logo-Design.png"
+            alt="SoftSell Logo"
+            width={400}
+            height={400}
+             className="object-contain drop-shadow-xl border border-gray-300 rounded-lg"
+            priority 
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }

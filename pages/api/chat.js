@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  // Require here to avoid Next.js bundling issues
+  
   const { Configuration, OpenAIApi } = require('openai');
 
   const configuration = new Configuration({

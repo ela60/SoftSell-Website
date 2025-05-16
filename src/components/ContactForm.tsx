@@ -55,17 +55,22 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900 py-16 px-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Contact / Lead Form
-        </h2>
-        <form
-          onSubmit={handleSubmit}
-          noValidate
-          className="space-y-6"
-          aria-label="Contact form"
-        >
+    <section className="relative bg-white  py-16 px-6 overflow-hidden">
+  {/* Triangle Background Decorations */}
+  <div className="absolute -top-10 -left-10 w-32 h-32 rotate-45 bg-indigo-100 dark:bg-indigo-900 opacity-20 z-0" />
+  <div className="absolute bottom-0 right-0 w-40 h-40 rotate-12 bg-indigo-200 dark:bg-indigo-800 opacity-20 z-0" />
+  <div className="absolute top-1/2 left-1/2 w-24 h-24 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-indigo-50 dark:bg-indigo-700 opacity-10 z-0" />
+
+  <div className="relative max-w-3xl mx-auto z-10 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl">
+    <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+      Contact / Lead Form
+    </h2>
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      className="space-y-6"
+      aria-label="Contact form"
+    >
           {/* Name */}
           <div>
             <label
