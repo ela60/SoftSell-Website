@@ -104,8 +104,20 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="relative bg-indigo-50 dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-10 xl:px-16">
-      <div className="max-w-7xl mx-auto text-center mb-16">
+    <section className="relative bg-indigo-50 dark:bg-gray-900 py-20 px-4 sm:px-6 lg:px-10 xl:px-16 overflow-hidden">
+      {/* Background Shapes */}
+      <div className="absolute top-10 left-5 w-24 h-24 bg-indigo-100 dark:bg-indigo-800 opacity-20 rotate-45 z-0 rounded-sm" />
+  <div className="absolute bottom-16 right-8 w-32 h-32 bg-purple-100 dark:bg-purple-700 opacity-20 rounded-full z-0" />
+  <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-pink-100 dark:bg-pink-800 opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2 z-0" />
+  <div className="absolute bottom-10 left-10 w-16 h-16 bg-yellow-100 dark:bg-yellow-700 opacity-20 rotate-12 z-0 rounded-sm" />
+
+      {/* Right side triangle and circle */}
+      <div className="absolute top-10 left-5 w-24 h-24 bg-indigo-100 dark:bg-indigo-800 opacity-20 rotate-45 z-0 rounded-sm" />
+  <div className="absolute bottom-16 right-8 w-32 h-32 bg-purple-100 dark:bg-purple-700 opacity-20 rounded-full z-0" />
+  <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-pink-100 dark:bg-pink-800 opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2 z-0" />
+  <div className="absolute bottom-10 left-10 w-16 h-16 bg-yellow-100 dark:bg-yellow-700 opacity-20 rotate-12 z-0 rounded-sm" />
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto text-center mb-16 relative z-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-indigo-800 dark:text-white">
           Customer Testimonials
         </h2>
@@ -114,19 +126,22 @@ export default function TestimonialsSection() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-20">
+      {/* Main content */}
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center lg:items-start justify-center gap-10 lg:gap-20 relative z-10 px-2 sm:px-0">
         {/* Testimonials */}
-        <div className="relative w-full lg:w-1/2 h-[300px]">
+        <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[320px]">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className={`absolute top-0 left-0 w-full bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-2xl transition-all duration-500 ${
-                i === currentIndex ? 'z-20 opacity-100 scale-100' : 'z-10 opacity-0 scale-95'
+              className={`absolute top-0 left-0 w-full bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-2xl transition-all duration-500 transform origin-center ${
+                i === currentIndex
+                  ? 'z-20 opacity-100 scale-100'
+                  : 'z-10 opacity-0 scale-95 pointer-events-none'
               }`}
             >
               <FaQuoteLeft className="text-indigo-400 mb-4 text-2xl sm:text-3xl" />
               <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm sm:text-base">
-                "{t.review}"
+                &quot;{t.review}&quot;
               </p>
               <div>
                 <h3 className="text-md sm:text-lg font-semibold text-indigo-900 dark:text-indigo-200">
@@ -142,7 +157,8 @@ export default function TestimonialsSection() {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute -bottom-12 right-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow"
+            className="absolute -bottom-12 right-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label="Next Testimonial"
           >
             Next →
           </button>
@@ -150,7 +166,11 @@ export default function TestimonialsSection() {
 
         {/* Pie Chart Container */}
         <div className="relative w-64 h-64 mx-auto lg:mx-0 flex-shrink-0">
-          <svg viewBox="0 0 100 100" className="w-full h-full rounded-full shadow-lg">
+          <svg
+            viewBox="0 0 100 100"
+            className="w-full h-full rounded-full shadow-lg"
+            aria-label="Customer satisfaction pie chart"
+          >
             {createPaths()}
           </svg>
 

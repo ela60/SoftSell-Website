@@ -54,10 +54,10 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-6"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
+          <h1 className="text-4xl md:text-6xl font-serif text-gray-900 dark:text-white leading-tight">
             Turn Unused <span className="text-indigo-500">Software</span>  Into Cash
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl">
+          <p className="text-lg md:text-xl font-serif text-gray-600 dark:text-gray-300 max-w-xl">
             SoftSell helps you easily sell your unused software licenses and get
             paid fast. No hassle, just profit.
           </p>
@@ -85,25 +85,39 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Right Side Image Animation */}
-        <motion.div
-          className="relative w-full h-[400px] flex justify-center items-center"
-          animate={{ y: [0, 60, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src="https://i.ibb.co/dsnmDNQ7/Soft-Sell-Tech-Logo-Design.png"
-            alt="SoftSell Logo"
-            width={400}
-            height={400}
-             className="object-contain drop-shadow-xl border border-gray-300 rounded-lg"
-            priority 
-          />
-        </motion.div>
+       
+  <motion.div
+  className="relative w-full h-[400px] flex justify-center items-center"
+  animate={{ y: [0, 60, 0] }}
+  transition={{
+    repeat: Infinity,
+    duration: 10,
+    ease: "easeInOut",
+  }}
+>
+  {/* Large Image - Bottom Right */}
+  <Image
+    src="https://i.ibb.co/dsnmDNQ7/Soft-Sell-Tech-Logo-Design.png"
+    alt="SoftSell Logo Large"
+    width={320}
+    height={320}
+    className="absolute bottom-0 right-0 object-contain drop-shadow-xl border border-gray-300 rounded-lg
+               w-[160px] h-[160px] sm:w-[320px] sm:h-[320px]"
+    priority
+  />
+
+  {/* Small Image - Top Left */}
+  <Image
+    src="https://i.ibb.co/dsnmDNQ7/Soft-Sell-Tech-Logo-Design.png"
+    alt="SoftSell Logo Small"
+    width={220}
+    height={220}
+    className="absolute top-0 left-0 object-contain drop-shadow-xl border border-gray-300 rounded-lg
+               w-[110px] h-[110px] sm:w-[220px] sm:h-[220px]"
+  />
+</motion.div>
+
+
       </div>
     </section>
   );
