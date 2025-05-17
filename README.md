@@ -5,7 +5,7 @@ A sleek, responsive web app that allows users to **sell unused software licenses
 ---
 ## 🔗 Live Demo
 
-🌍 [Click here to view the live site](https://your-live-site-url.com)
+🌍 [Click here to view the live site](https://softsell-sooty.vercel.app/)
 
 ## 🚀 Features Implemented
 
